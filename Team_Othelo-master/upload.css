@@ -1,0 +1,138 @@
+        *
+        {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        }
+
+
+        body
+        {
+        font-family: Arial, Helvetica,"Times New Roman", sans-serif;
+        overflow-x: hidden;
+        }
+
+
+
+/* navbar */
+.navbar-container{
+
+    height: 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .upload-container
+        { 
+        top:100px ;
+        position: relative;
+
+        }
+
+
+
+        .upload-container h1
+        {
+          position: relative;
+          bottom: 50px;
+           margin-left: 140px;
+        }
+
+
+
+
+        .books-current-photos
+        {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 100px;
+
+        }
+
+
+
+            .books-current-photos .books-photos
+            {
+            
+            
+            line-height: 110px;
+            width: 110px;
+            margin-left: 40px;
+            text-align: center;
+            border: 1px solid black;
+            justify-content: center;
+            align-items: center;
+            
+            }
+
+      input[type="file"]
+         {
+            display: none;
+         }
+      
+      .field-label
+      {
+        cursor: pointer;
+      }
+
+
+
+
+       /* post button */
+       
+        .post-btn
+        {
+          display: flex;
+         justify-content: center;
+        align-items: center;
+        }
+
+        .post-btn input[type="button"]
+        { 
+        position: relative;
+        cursor: pointer;
+        color: white;
+        border:2px solid #004D99;
+        border-radius: 8px;
+        background-color:#004D99;
+       margin-top:15px;
+        padding: 15px 200px;
+        
+      
+
+        }
+
+
+
+        /*     footer    */
+        footer
+        {
+         position: relative;
+         background-color: #FFA417;
+         height: 200px;
+
+            top: 130px;
+
+        }
+
+
+
+
+
+
+
+       
+

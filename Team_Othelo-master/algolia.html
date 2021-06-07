@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+      <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+
+      <script>
+         // Initialize Firebase
+         var config = {
+             apiKey: "AIzaSyDNJOYAnrIhA969TXbbtgMz1khfHrEmtmE",
+             authDomain: "ebooks-6202b.firebaseapp.com",
+             databaseURL: "https://ebooks-6202b.firebaseio.com",
+             projectId: "ebooks-6202b",
+             storageBucket: "ebooks-6202b.appspot.com",
+             messagingSenderId: "388247049805"
+           };
+         firebase.initializeApp(config);
+         var client = algoliasearch('WMZTCTMWV1', '0ee55cfcf267bad17ac1dd0f1236b8dc');
+         var index = client.initIndex('ebook_test');
+         index.setSettings({
+                          hitsPerPage: 20
+                        });
+         var userDataRef = firebase.database().ref("items").orderByKey();
+         /*userDataRef.once("value").then(function (snapshot) {
+             snapshot.forEach(function (childSnapshot) {
+             var title = childSnapshot.val().title;
+                 var author = childSnapshot.val().author;
+                 var type = childSnapshot.val().type;
+                 var category = childSnapshot.val().category;
+                 var img = childSnapshot.val().img_src;
+                 
+                     index.addObject({
+                          objectID: childSnapshot.key,
+                          title: title,
+                          author: author,
+                          type: type,
+                          category: category,
+                          img: img
+                        }, function(err, content) {
+                          console.log('objectID=' + content.objectID);
+                        });
+
+                
+                     });
+                   });
+                   
+                   var browser = index.browseAll();
+                        var hits = [];
+                        
+                        browser.on('result', function onResult(content) {
+                        console.log(content.hits)
+                        content.hits.forEach(function (childSnapshot) {
+                                //console.log(childSnapshot);
+                        });
+                     });
+                        
+                        browser.on('end', function onEnd() {
+                          console.log('Finished!');
+                          console.log('We got %d hits', hits.length);
+                        });
+                        
+                        browser.on('error', function onError(err) {
+                          throw err;
+                        });*/
+                        index.search(
+                          {
+                            query: '',
+                            page: 3,
+                          },
+                          function searchDone(err, content) {
+                            if (err) throw err;
+                        
+                            content.hits.forEach(function (childSnapshot) {
+                                console.log(childSnapshot.title);
+                        });
+                          }
+                        );
+
+// You can stop the process at any point with
+// browser.stop();
+
+      </script>
+      
+      <title>Book List</title>
+   </head>
+   <body class="stretched">
+      <!-- External JavaScripts
+         ============================================= -->
+      <script type="text/javascript" src="https://globalparliament.in/js/jquery.js"></script>
+      <script type="text/javascript" src="https://globalparliament.in/js/plugins.js"></script>
+      <!-- Footer Scripts
+         ============================================= -->
+      <script type="text/javascript" src="https://globalparliament.in/js/functions.js"></script>
+   </body>
+</html>
